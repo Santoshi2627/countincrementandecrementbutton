@@ -4,12 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      form {
+        border: 2px solid black;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+      .flexbox {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+      }
+
+      button {
+        border-radius: 30px;
+        padding: 1% 2%;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <form>
-      <button id="btn1">Increment</button>
-      <p style="display: inline">COUNTER:<span id="resultincre">0</span></p>
-      <button id="btn2">Decrement</button>
+      <div class="flexbox">
+        <button id="btn1">Increment</button>
+        <p style="display: inline">COUNTER:<span id="resultincre">0</span></p>
+        <button id="btn2">Decrement</button>
+      </div>
     </form>
     <script>
       let button1 = document.getElementById("btn1");
@@ -19,6 +47,12 @@
         count1++;
         let p = document.getElementById("resultincre");
         p.innerText = `${count1}`;
+        button1.style.background = "green";
+        button1.style.color = "white";
+        button1.addEventListener("mouseout", (e) => {
+          button1.style.background = "white";
+          button1.style.color = "black";
+        });
       });
       let button2 = document.getElementById("btn2");
       button2.addEventListener("click", (e) => {
@@ -26,6 +60,12 @@
         count1--;
         let p = document.getElementById("resultincre");
         p.innerText = `${count1}`;
+        button2.style.color = "red";
+        button2.style.background = "yellow";
+      });
+      button2.addEventListener("mouseout", (e) => {
+        button2.style.background = "white";
+        button2.style.color = "black";
       });
     </script>
   </body>
